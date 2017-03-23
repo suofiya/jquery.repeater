@@ -994,6 +994,9 @@ $.fn.repeater = function (fig) {
             $items().remove();
             foreach(rows, addItem);
         };
+        addList = function (rows) {
+            foreach(rows, addItem);
+        };
 
         $filterNested($self.find('[data-repeater-create]'), fig.repeaters).click(function () {
             addItem();
@@ -1009,6 +1012,7 @@ $.fn.repeater = function (fig) {
     });
 
     this.setList = setList;
+    this.addList = addList;
 
     return this;
 };
