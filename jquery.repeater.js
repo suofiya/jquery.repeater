@@ -798,7 +798,9 @@ $.fn.repeater = function (fig) {
     fig = fig || {};
 
     var setList;
-
+    var addList;
+    var listSize;
+    
     $(this).each(function () {
 
         var $self = $(this);
@@ -997,6 +999,9 @@ $.fn.repeater = function (fig) {
         addList = function (rows) {
             foreach(rows, addItem);
         };
+        listSize = function () {
+            return $items().length;
+        }
 
         $filterNested($self.find('[data-repeater-create]'), fig.repeaters).click(function () {
             addItem();
@@ -1013,6 +1018,7 @@ $.fn.repeater = function (fig) {
 
     this.setList = setList;
     this.addList = addList;
+    this.listSize = listSize;
 
     return this;
 };
